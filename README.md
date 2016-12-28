@@ -1,4 +1,4 @@
-View demo at This project was bootstrapped with [kilianfrey.com/react-pilot](kilianfrey.com/react-pilot).
+View demo at This project was bootstrapped with [kilianfrey.com/react-pilot](http://kilianfrey.com/react-pilot).
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
