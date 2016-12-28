@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css?family=Kumar+One');
+
+
+body {
+	background-color: #f9f9f9;
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+////////////////
+////////////////
+////////////////
+////////////////
+////////////////
+
+
+
+h1, h2, h3, h4 {
+	font-family: 'Kumar One', cursive !important;
+	color: white;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+.slideshow-title {
+	font-size: 3rem;
+	position: absolute;
+	top: 40%;
+	width: 100%;
+	text-align: center;
+	z-index: 10;
+	transition: opacity .5s;
+	.open & {
+		opacity: 0;
+	}
+}
+
+.slider {
+	margin: 100px 0;
+	height: calc(100vw / 3);
+	position: relative;
+	transition: all .5s;
+	width: 100vw;
+	overflow: hidden;
+	ul {
+		height: 100%;
+		transition: all .5s cubic-bezier(0.6, 0.02, 0.35, 1);
+		li {
+			width: 100vw;
+			height: 100%;
+			display: inline-block;
+			background-size: cover;
+			background-position: center center;
+			&:nth-child(2) {
+				background-color: red;
+			}
+			&:nth-child(3) {
+				background-color: blue;
+			}
+		}
+	}
+	&.open {
+		height: 100vh;
+		margin: 0;		
+		a.previous,
+		a.next {
+			opacity: 1;
+		}
+	}
+	a.previous,
+	a.next {
+		position: absolute;
+		opacity: 0;
+		top:  50%;
+		width: 50px;
+		height: 50px;
+		margin-top: -25px;
+		background-color: white;
+		color: transparent;
+		overflow: hidden;
+		cursor: pointer;
+		&:after,
+		&:before {
+			transition: all .1s linear;
+			content: "";
+			position: absolute;
+			top: 13px;
+			right: 22px;
+			width: 1px;
+			height: 15px;
+			background: #ababab;
+		}
+		&:after {
+			transform: rotate(45deg);
+			top: 23px;
+		}
+		&:before {
+			transform: rotate(-45deg);
+		}
+		&:hover {
+			&:after,
+			&:before {
+				width: 5px;
+			}
+			&:after {
+				top: 21px;
+			}
+		}
+
+	}
+	a.previous {
+		left: 30px;
+		transform: rotate(180deg);
+		&:after {
+		}
+	}
+	a.next {
+		right: 30px;
+		&:after {
+		}
+	}
+
+}
+
+
+.slideshow-close {
+	transition: all .5s;
+	background: white;
+	border: none;
+	position: absolute;
+	top: 0;
+	right: 50px;
+	z-index: 10;
+	color: rgb(0, 0, 0);
+	text-indent: -9999px;
+	font-size: 40px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	.open & {
+		transform: translateY(0);
+		&:after,
+		&:before {
+			transition: all .1s linear;
+			content: "";
+			position: absolute;
+			top: 9px;
+			right: 24px;
+			width: 1px;
+			height: 30px;
+			background: #c1c1c1;
+		}
+		&:after {
+			transform: rotate(45deg)
+		}
+		&:before {
+			transform: rotate(-45deg)
+		}
+		&:hover {
+			background: gray;
+		}
+	}
+	.close & {
+		transform: translateY(-100px);
+	}
+}
+
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 10;
+  transition: all .5s;
+  .open & {
+	opacity: 0;
+  }
+}
+
+.slideNumber {
+	position: absolute;
+	right: 30px;
+	bottom: 30px;
+	font-size: 40px;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+	color: white;
+	z-index: 10;
+	opacity: 0;
+	transition: all .5s;
+	font-family: 'Kumar One', cursive;
+	.open & {
+		opacity: 1;
+	}
+	.close & {
+	}
+}
+
+
+input.button {
+  display: inline-block;
+  font-family: "Helvetica Neue",Helvetica,"Franklin Gothic Medium","Franklin Gothic","ITC Franklin Gothic",Arial,sans-serif;
+  font-weight: bold;
+  padding: 15px;
+  margin-right: 5px;
+  height: 50px;
+  min-width: 100px;
+  background: #4b2e83;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 3px;
+  box-shadow: 0 5px 0px darken(#4b2e83,0%);
+  border-bottom: 2px solid darken(#4b2e83,3%);
+  cursor: pointer;
+  &:hover{
+    background: darken(#4b2e83,5%);
+    box-shadow: 0 4px 1px darken(#4b2e83,5%);
+    border-bottom: 2px solid darken(#4b2e83,8%);
+    transition: all 0.1s ease-in;
+  }
+  
+  &:active{
+    transform:translateY(4px);
+    border-bottom-width: 2px;
+    box-shadow: none;
+  }
+  .open & {
+  	opacity: 0;
+  }
+  .close & {
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
